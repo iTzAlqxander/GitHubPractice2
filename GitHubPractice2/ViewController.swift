@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
     
-    @IBOutlet weak var tableView: UITableView
+    @IBOutlet weak var tableView: UITableView!
     var animals = ["tiger", "lion", "zebra"]
     
     override func viewDidLoad() {
@@ -24,6 +24,14 @@ class ViewController: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
         cell.textLabel?.text = animals[indexPath.row]
         return cell
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nvc = segue.destination as! secondViewController
+        nvc.animal  =  "tiger"
+        
+        guard let selectedRow = tableView.indexPathForSelectedRow?.row else {
+            return
+        }
     }
 }
 
