@@ -26,12 +26,13 @@ class ViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nvc = segue.destination as! secondViewController
-        nvc.animal  =  "tiger"
-        
         guard let selectedRow = tableView.indexPathForSelectedRow?.row else {
             return
         }
+        let nvc = segue.destination as! secondViewController
+        nvc.animal  = animals[selectedRow]
+        
+        
     }
 }
 

@@ -12,14 +12,15 @@ class secondViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var animal:String?
+    var animal = " "
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        animal = nameLabel.text
-        imageView.image = UIImage(named: "animal")
+        nameLabel.text = animal
+        imageView.image = UIImage(named: animal)
+        print(animal)
     }
     
 
